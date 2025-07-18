@@ -70,6 +70,7 @@ const sections = {
     <section id="orcamento">
       <h2>Solicite um Orçamento</h2>
       <form class="contato-form" action="https://formspree.io/f/mwkgyyqg" method="POST">
+      <form class="contato-form" action="https://formspree.io/f/xdoqzqzq" method="POST">
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu e-mail" required>
         <input type="text" name="aparelho" placeholder="Modelo do aparelho" required>
@@ -83,6 +84,7 @@ const sections = {
     <section id="orcamento">
       <h2>Solicite um Orçamento</h2>
       <form class="contato-form" action="https://formspree.io/f/mwkgyyqg" method="POST" enctype="multipart/form-data">
+      <form class="contato-form" action="https://formspree.io/f/xdoqzqzq" method="POST" enctype="multipart/form-data">
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu e-mail" required>
         <input type="text" name="aparelho" placeholder="Modelo do aparelho" required>
@@ -99,6 +101,7 @@ const sections = {
     <section id="compra-venda">
       <h2>Compra & Venda de Itens</h2>
       <form class="contato-form" action="https://formspree.io/f/mwkgyyqg" method="POST">
+      <form class="contato-form" action="https://formspree.io/f/xdoqzqzq" method="POST">
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu e-mail" required>
         <input type="text" name="item" placeholder="O que deseja vender ou comprar?" required>
@@ -122,6 +125,7 @@ const sections = {
     <section id="compra-venda">
       <h2>Compra & Venda de Itens</h2>
       <form class="contato-form" action="https://formspree.io/f/mwkgyyqg" method="POST" enctype="multipart/form-data">
+      <form class="contato-form" action="https://formspree.io/f/xdoqzqzq" method="POST" enctype="multipart/form-data">
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu e-mail" required>
         <input type="text" name="item" placeholder="O que deseja vender ou comprar?" required>
@@ -148,12 +152,28 @@ const sections = {
     <section id="contato">
       <h2>Fale com a ClubSmart</h2>
       <form class="contato-form" action="https://formspree.io/f/mwkgyyqg" method="POST">
+      <form class="contato-form" action="https://formspree.io/f/xdoqzqzq" method="POST">
         <input type="text" name="nome" placeholder="Seu nome" required>
         <input type="email" name="email" placeholder="Seu e-mail" required>
         <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
         <button type="submit">Enviar</button>
       </form>
       <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Contato ClubSmart" class="img-ilustra" onerror="this.src='https://img.icons8.com/fluency/96/000000/phone-office.png'">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Contato ClubSmart" class="img-ilustra" onerror="this.src='https://img.icons8.com/fluency/96/000000/phone-office.png'">
+// Adiciona o e-mail no rodapé
+window.addEventListener('DOMContentLoaded', () => {
+  // ...existing code...
+  // Adiciona e-mail no rodapé se não existir
+  const footer = document.querySelector('footer');
+  if (footer && !document.getElementById('footer-email')) {
+    const emailDiv = document.createElement('div');
+    emailDiv.id = 'footer-email';
+    emailDiv.style.marginTop = '8px';
+    emailDiv.style.fontSize = '1.08em';
+    emailDiv.innerHTML = '<a href="mailto:clubesmart7@gmail.com" style="color:#00b4d8;font-weight:600;text-decoration:none;">clubesmart7@gmail.com</a>';
+    footer.appendChild(emailDiv);
+  }
+});
     </section>
   `
 };
@@ -219,65 +239,33 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(btn);
   }
 
-  // Adiciona gifs/imagens dos dois lados do logo no cabeçalho e melhora o contraste do logo
+  // Seleciona o header
   const header = document.querySelector('header');
-  if (header && !document.getElementById('gifs-laterais')) {
-    // Remove gifs antigos se existirem
-    const oldGifs = document.querySelectorAll('.gif-lateral');
-    oldGifs.forEach(g => g.remove());
 
-    // Adiciona container para os gifs laterais
-    const gifsContainer = document.createElement('div');
-    gifsContainer.id = 'gifs-laterais';
-    gifsContainer.style.display = 'flex';
-    gifsContainer.style.justifyContent = 'space-between';
-    gifsContainer.style.alignItems = 'center';
-    gifsContainer.style.width = '100%';
-    gifsContainer.style.position = 'absolute';
-    gifsContainer.style.top = '0';
-    gifsContainer.style.left = '0';
-    gifsContainer.style.height = '100%';
-    gifsContainer.style.pointerEvents = 'none';
-
-    // Gifs/imagens para os lados
-    const gifLeft = document.createElement('img');
-    gifLeft.src = 'https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif';
-    gifLeft.alt = 'Tech gif';
-    gifLeft.className = 'gif-lateral';
-    gifLeft.style.height = '60px';
-    gifLeft.style.marginLeft = '10px';
-    gifLeft.style.filter = 'drop-shadow(0 2px 8px #00eaff88)';
-    gifLeft.style.pointerEvents = 'none';
-
-    const gifRight = document.createElement('img');
-    gifRight.src = 'https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif';
-    gifRight.alt = 'Tech gif';
-    gifRight.className = 'gif-lateral';
-    gifRight.style.height = '60px';
-    gifRight.style.marginRight = '10px';
-    gifRight.style.filter = 'drop-shadow(0 2px 8px #00eaff88)';
-    gifRight.style.pointerEvents = 'none';
-
-    gifsContainer.appendChild(gifLeft);
-    gifsContainer.appendChild(document.createElement('div'));
-    gifsContainer.appendChild(gifRight);
-
-    header.style.position = 'relative';
-    header.appendChild(gifsContainer);
+  // Remove qualquer imagem extra do header, exceto o logo
+  if (header) {
+    // Remove container de imagens customizadas se existir
+    const oldImgs = document.getElementById('header-imgs');
+    if (oldImgs) oldImgs.remove();
+    // Remove qualquer img dentro do header que não seja o logo
+    header.querySelectorAll('img:not(.logo-tech):not(.logo):not(.logo-clubsmart)').forEach(img => img.remove());
   }
 
-  // Melhorar contraste e visual do logo ClubSmart
+  // Aumenta bem o logo ClubSmart em todas as telas
   const logo = document.querySelector('.logo-tech, .logo, .logo-clubsmart');
   if (logo) {
     logo.style.background = 'linear-gradient(90deg,#00b4d8 60%,#fff 100%)';
-    logo.style.borderRadius = '18px';
-    logo.style.padding = '10px 32px';
-    logo.style.boxShadow = '0 4px 24px #00eaff55, 0 1.5px 0 #2222';
+    logo.style.borderRadius = '28px';
+    logo.style.padding = '22px 7vw';
+    logo.style.boxShadow = '0 8px 36px #00eaff77, 0 2px 0 #2222';
     logo.style.fontWeight = 'bold';
-    logo.style.fontSize = '2.1em';
-    logo.style.letterSpacing = '1.5px';
+    logo.style.fontSize = '3.2em';
+    logo.style.letterSpacing = '2px';
     logo.style.color = '#222';
-    logo.style.textShadow = '0 2px 8px #fff, 0 1px 0 #00eaff';
+    logo.style.textShadow = '0 2px 12px #fff, 0 1px 0 #00eaff';
     logo.style.zIndex = '2';
+    logo.style.position = 'relative';
   }
+
+  // Melhorar contraste e visual do logo ClubSmart (já tratado acima, removido duplicidade)
 });
